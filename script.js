@@ -18,14 +18,25 @@ function createGrid(size) {
     square.classList.add('square');
     container.appendChild(square);
   }
+  //Function to get a random color
+  function getRandomColor() {
+  const r = Math.floor(Math.random() * 256); // red
+  const g = Math.floor(Math.random() * 256); // green
+  const b = Math.floor(Math.random() * 256); // blue
+  return `rgb(${r}, ${g}, ${b})`; // combine into an RGB string
+  } 
+  
   // Add event listeners
   const squares = document.querySelectorAll('.square');
+  
   squares.forEach(square => {
     square.addEventListener('mouseenter', () => {
-      square.style.backgroundColor = 'red';
+      const randomColor = getRandomColor(); //Get a random color
+      square.style.backgroundColor = randomColor; //apply the random color
     });
     square.addEventListener('mouseleave', () => {
-      square.style.backgroundColor = 'blue';
+      const randomColor = getRandomColor(); //Get a random color
+      square.style.backgroundColor = randomColor; //apply the random color
     });
   });
 }
